@@ -1,6 +1,8 @@
 # catferie
 home page of the band called catferie.
 
+site: [http://catferie.com](http://catferie.com)
+
 ## css framework
 use [Pure.css](https://purecss.io/).
 
