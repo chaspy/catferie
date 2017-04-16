@@ -462,6 +462,11 @@ th {
     display: block;
 }
 
+.pure-img-footer {
+    max-width: 32px;
+    height: auto;
+}
+
 /*csslint regex-selectors:false, known-properties:false, duplicate-properties:false*/
 
 .pure-g {
