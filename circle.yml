@@ -17,3 +17,5 @@ deployment:
     branch: master
     commands:
       - aws s3 sync . s3://catferie.com/ --delete
+      - aws configure set preview.cloudfront true
+      - aws cloudfront create-invalidation --distribution-id EMR2SGK6C7H5S --paths '/*'
