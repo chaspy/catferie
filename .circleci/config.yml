@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.7-stretch-browsers
+    steps:
+      - checkout
+      - run: sudo pip install awscli
+      - run: aws configure set region ap-northeast-1
+      - run: aws s3 sync . s3://catferie.com/ --delete --dryrun
+      - run:
+          command: |
+            if [[ "$CIRCLE_BRANCH" == "master" ]]; then
+              aws s3 sync . s3://catferie.com/ --delete
+              aws configure set preview.cloudfront true
+              aws cloudfront create-invalidation --distribution-id EMR2SGK6C7H5S --paths '/*'
+            fi
